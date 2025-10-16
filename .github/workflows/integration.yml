@@ -1,9 +1,5 @@
 name: Integration
-
-#everytime when below task performed then this workflow will run and job will be triggered
-#1. when code is pushed to main branch
-#2. when pull request is created to main branch
-#you can change the branch name as per your requirement
+# This workflow will build and test the project at every push or pull request made to the main branch.
 on:
   push:
     branches: ["main"]
@@ -39,7 +35,6 @@ jobs:
         node-version: [18.x, 20.x, 22.x]
 
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
@@ -48,18 +43,7 @@ jobs:
           cache: "npm"
       - name: "Installing Dependencies"
         run: npm i
-
+      - name: "Build command"
+        run: npm run build
       - name: "Running test cases"
         run: npm run test
-=======
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - name: "Installing Dependencies"
-      run: npm i
-    - name: "Running test cases"
-      run: npm run test
->>>>>>> f0211e1ea0cc045253f804c2e6e7cfa32aedcf70

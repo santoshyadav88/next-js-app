@@ -2,9 +2,9 @@ name: Integration
 # This workflow will build and test the project at every push or pull request made to the main branch.
 on:
   push:
-    branches: ["main"]
+    branches: ["workflow/integration"]
   pull_request:
-    branches: ["main"]
+    branches: ["workflow/integration"]
 
 jobs:
   build:

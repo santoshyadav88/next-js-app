@@ -7,7 +7,6 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: DockerHub_Secret
 
     steps:
       - name: Checkout
@@ -16,8 +15,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKERHUB_USER }}       # make sure this secret exists in the DockerHub_Secret environment
-          password: ${{ secrets.DOCKERHUB_PASSWORD }}   # make sure this secret exists in the DockerHub_Secret environment
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build Docker image
         run: docker build . -t santoshyadav88/next-js-app:latest
